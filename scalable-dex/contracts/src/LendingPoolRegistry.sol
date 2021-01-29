@@ -1,6 +1,8 @@
 pragma solidity ^0.5.2;
 
 import "./interfaces/IQueryableFactRegistry.sol";
+import "./pools/aave-pools/LendingPool.sol";
+
 
 contract LendingPoolRegistry is IQueryableFactRegistry {
     // Mapping: fact hash -> true.
