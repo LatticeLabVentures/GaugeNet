@@ -1,8 +1,16 @@
-# StarkEx
+# GaugeNet
+
+## Concept
+ERC 1155 Multi Token Standard based Non Fungible Project Funding through AAVE Credit Delegation Workflows Deployed in ZKP based StarkEx Scalablity Engine.
+
+## Progress 
+Fine Tuned AAVE Lending Pools and AAVE Credit Delegation. Integrated AAVE Lending Pools and AAVE Credit Delegation Workflows into the Scalable StarkEx. Created LendingPoolRegistry and LendingPoolAdaptorFactRegistry in the StarkEx. 
+
+## Framework
 
 StarkEx is a STARK-powered scalability engine for crypto exchanges. StarkEx uses cryptographic
 proofs to attest to the validity of a batch of transactions (such as trades and transfers)
-and updates a commitment to the state of the exchange onchain.
+and updates a commitment to the state of the exchange onchain. 
 
 StarkEx allows exchanges to provide non-custodial trading at scale with high liquidity and lower
 costs.
