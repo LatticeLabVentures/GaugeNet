@@ -1,9 +1,9 @@
-pragma solidity 0.5.2;
+pragma solidity ^0.5.16;
 
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 
 
-contract CollateralToken is ERC20 {
+contract CreditValueToken is ERC20 {
     string public name;
     string public symbol;
     uint8 public decimals;
