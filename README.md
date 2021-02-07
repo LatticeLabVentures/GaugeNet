@@ -1,7 +1,7 @@
 # GaugeNet
 
 ## Concept
-ERC 1155 Multi Token Standard based Non Fungible Project Funding through AAVE Credit Delegation Workflows Deployed in ZKP based StarkEx Scalablity Engine.
+ERC 1155 Multi Token Standard based Forward Flashloan Marketplace with AAVE Credit Delegation Workflows Deployed in ZKP based StarkEx Scalablity Engine.
 
 ## Progress 
 Fine Tuned AAVE Lending Pools and AAVE Credit Delegation. Integrated AAVE Lending Pools and AAVE Credit Delegation Workflows into the Scalable StarkEx. Created LendingPoolRegistry and LendingPoolAdaptorFactRegistry in the StarkEx. 
