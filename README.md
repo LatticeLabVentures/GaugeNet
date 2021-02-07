@@ -1,4 +1,4 @@
-# GaugeNet
+# HenkiNet
 
 ## Concept
 ERC 1155 Multi Token Standard based Forward Flashloan Marketplace with AAVE Credit Delegation Workflows Deployed in ZKP based StarkEx Scalablity Engine.
