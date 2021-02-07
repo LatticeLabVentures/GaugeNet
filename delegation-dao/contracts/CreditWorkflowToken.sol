@@ -5,6 +5,10 @@ import 'multi-token-standard/contracts/tokens/ERC1155/ERC1155.sol';
 import 'multi-token-standard/contracts/tokens/ERC1155/ERC1155Metadata.sol';
 import 'multi-token-standard/contracts/tokens/ERC1155/ERC1155MintBurn.sol';
 
+import {DelegationDataTypes} from "./DelegationDataTypes.sol";
+import {DelegationVault} from "./DelegationVault.sol";
+import {DelegationDAO } from "./DelegationDAO.sol";
+
 contract OwnableDelegateProxy { }
 
 contract ProxyRegistry {
