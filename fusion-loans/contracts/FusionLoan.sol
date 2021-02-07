@@ -17,6 +17,90 @@ contract FusionLoan is FlashLoanReceiverBase, BondingCurve {
     using SafeMath for uint256;
 
     constructor(ILendingPoolAddressesProvider _addressProvider) FlashLoanReceiverBase(_addressProvider) public {}
+    
+    address payable wallet;
+
+    // Desired Curve: Linear Progression W/ % Amount/Asset Delta
+    // Ex: Amount is always 90% of Asset price.
+
+    uint256 slopeNumerator;
+    uint256 slopeDenominator;
+    uint256 sellPercentage; // ex: 90 == 90% of buy price
+
+    event Payout(uint256 payout, uint256 indexed timestamp);
+
+    function initialize(
+        string memory name, 
+        string memory symbol, 
+        uint8 decimals,
+        address payable _wallet,
+        uint256 _slopeNumerator,
+        uint256 _slopeDenominator,
+        uint256 _loanPercentage
+    ) public initializer {
+        require(
+            _loanPercentage < 100 && _loanPercentage != 0,
+            "Percentage must be between 0 & 100"
+        );
+
+        BondingCurve.initialize(name, symbol, decimals);
+        wallet = _wallet;
+        slopeNumerator = _slopeNumerator;
+        slopeDenominator = _slopeDenominator;
+        loanPercentage = _loanPercentage;
+    }
+
+    function minIntegral(uint256 x)
+        internal view returns (uint256)
+    {
+        return (slopeNumerator * x * x) / (2 * slopeDenominator);
+    }
+
+    function maxIntegral(uint256 x)
+        internal view returns (uint256)
+    {
+        return (slopeNumerator * x * x * sellPercentage) / (200 * slopeDenominator);
+    }
+
+    function spread(uint256 toX)
+        public view returns (uint256)
+    {
+        uint256 min = minIntegral(toX);
+        uint256 max = maxIntegral(toX);
+        return min.sub(max);
+    }
+
+    /// Overwrite
+    function min(uint256 tokens) public payable {
+        uint256 spreadBefore = spread(totalSupply());
+        super.min(tokens);
+
+        uint256 spreadAfter = spread(totalSupply());
+
+        uint256 spreadPayout = spreadAfter.sub(spreadBefore);
+        reserve = reserve.sub(spreadPayout);
+        wallet.transfer(spreadPayout);
+
+        emit Payout(spreadPayout, now);
+    }
+
+    function calculateMinReturn(uint256 tokens)
+        public view returns (uint256)
+    {
+        return buyIntegral(
+            totalSupply().add(tokens)
+        ).sub(reserve);
+    }
+
+    function calculateMaxReturn(uint256 tokens)
+        public view returns (uint256)
+    {
+        return reserve.sub(
+            maxIntegral(
+                totalSupply().sub(tokens)
+        ));
+    }
+    
 
     /**
         This function is called after your contract has received the flash loaned amount
@@ -33,15 +117,7 @@ contract FusionLoan is FlashLoanReceiverBase, BondingCurve {
         returns (bool)
     {
 
-        //
-        // This contract now has the funds requested.
-        // Your logic goes here.
-        //
-
-        // At the end of your logic above, this contract owes
-        // the flashloaned amounts + premiums.
-        // Therefore ensure your contract has enough to repay
-        // these amounts.
+        amounts = assets ( max - min ) + premiums; 
 
         // Approve the LendingPool contract allowance to *pull* the owed amount
         for (uint i = 0; i < assets.length; i++) {
