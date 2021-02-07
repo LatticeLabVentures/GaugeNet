@@ -14,8 +14,10 @@ This project is an attempt to enhance the AAVE Protocol V2 Credit Delegation Wor
 - AAVE Credit Delegation Workflow Token as ERC 1155
 - AAVE Credit LTV Tokenisation as ERC 20
 - AAVE Credit LTC Tokenisation as ERC 20
+- AAVE Credit Delegation Farm for LTC and LTV Tokens
 - AAVE Credit Risk Tokenisation as ERC 20
 - AAVE Credit Score Tokenisation as ERC 20
+- AAVE Credit Delegation DAO for Risk and Scoe Tokens
 - AAVE Batch Flash Loan Distribution as a Bonding Curve
 - AAVE Batch Flash Loan becomes Fusion Loans in a Bonding Curve
 
