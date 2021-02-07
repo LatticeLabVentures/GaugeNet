@@ -1,7 +1,7 @@
 pragma solidity ^0.5.16;
 
-import "../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
-import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "@openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "@openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 contract ArbitrageToken is Ownable {
     function totalSupply() public view returns (uint256);
