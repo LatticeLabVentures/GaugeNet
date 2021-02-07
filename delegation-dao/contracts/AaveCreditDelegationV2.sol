@@ -11,18 +11,8 @@ import {SafeERC20} from "./Libraries.sol";
 import {DelegationDataTypes} from "./DelegationDataTypes.sol";
 import {DelegationVault} from "./DelegationVault.sol";
 
-/**
- * This is a proof of concept starter contract, showing how uncollaterised loans
- * are possible using Aave v2 credit delegation.
- * @dev -------------------------------- TODO ----------------------------------
- * This example supports stable interest rate borrows.
- * -----------------------------------------------------------------------------
- * @dev -------------------------------- TODO ----------------------------------
- * It is not production ready (!). User permissions and user accounting of loans should be implemented.
- * See @dev comments
- * -----------------------------------------------------------------------------
- */
-contract AaveCreditDelegationV2 is CreditDeliStorage {
+
+contract AaveCreditDelegationV2 is DelegationVault {
     using SafeERC20 for IERC20;
     using DelegationDataTypes for DelegationDataTypes.DelegationData;
 
