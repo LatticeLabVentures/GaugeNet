@@ -3,7 +3,7 @@
 - Trivia : 'Henki' is the Finnish Coinage for 'Spirit'
 
 ## Summary
-AAVE Credit Delegation V2 Workflow ERC 1155 Tokens, Token Farms and DAO & AAVE Flash Loan V2 Bonding Curves on StarkWare StarkEx DEX
+First of its kind Reference Implementation of the AAVE Credit Delegation V2 Workflow ERC 1155 Tokens, Token Farms and DAO & AAVE Flash Loan V2 Bonding Curve Integration Architecture on StarkWare StarkEx DEX
 
 ## Highlights 
 - AAVE Credit Delegation V2 Integration to a DAO
