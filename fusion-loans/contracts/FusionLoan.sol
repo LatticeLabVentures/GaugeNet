@@ -5,7 +5,6 @@ import { FlashLoanReceiverBase } from "FlashLoanReceiverBase.sol";
 import { ILendingPool, ILendingPoolAddressesProvider, IERC20 } from "Interfaces.sol";
 import { SafeMath } from "Libraries.sol";
 
-import "zos-lib/contracts/Initializable.sol";
 import "./BondingCurve.sol";
 
 /** 
@@ -14,7 +13,7 @@ import "./BondingCurve.sol";
     exposed to a 'griefing' attack, where the stored funds are used by an attacker.
     !!!
  */
-contract FusionLoan is FlashLoanReceiverBase {
+contract FusionLoan is FlashLoanReceiverBase, BondingCurve {
     using SafeMath for uint256;
 
     constructor(ILendingPoolAddressesProvider _addressProvider) FlashLoanReceiverBase(_addressProvider) public {}
