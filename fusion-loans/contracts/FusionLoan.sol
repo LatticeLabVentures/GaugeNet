@@ -5,6 +5,9 @@ import { FlashLoanReceiverBase } from "FlashLoanReceiverBase.sol";
 import { ILendingPool, ILendingPoolAddressesProvider, IERC20 } from "Interfaces.sol";
 import { SafeMath } from "Libraries.sol";
 
+import "zos-lib/contracts/Initializable.sol";
+import "./BondingCurve.sol";
+
 /** 
     !!!
     Never keep funds permanently on your FlashLoanReceiverBase contract as they could be 
