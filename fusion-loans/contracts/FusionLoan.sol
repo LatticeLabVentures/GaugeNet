@@ -11,7 +11,7 @@ import { SafeMath } from "Libraries.sol";
     exposed to a 'griefing' attack, where the stored funds are used by an attacker.
     !!!
  */
-contract MyV2FlashLoan is FlashLoanReceiverBase {
+contract FusionLoan is FlashLoanReceiverBase {
     using SafeMath for uint256;
 
     constructor(ILendingPoolAddressesProvider _addressProvider) FlashLoanReceiverBase(_addressProvider) public {}
