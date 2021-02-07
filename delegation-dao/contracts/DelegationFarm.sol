@@ -1,22 +1,25 @@
 pragma solidity >=0.4.21 <0.6.0;
 
-import "./DappToken.sol";
-import "./DaiToken.sol";
+import "./CreditValueToken.sol";
+import "./CreditCostToken.sol";
+import "./CreditRiskToken.sol";
+import "./CreditScoreToken.sol";
+import "./CreditWorkflowToken.sol";
 
 contract TokenFarm{
-    string public name = "Token Farm";
+    string public name = "Delegation Farm";
     address public owner;
-    DappToken public dappToken;
-    DaiToken public daiToken;
+    CreditValueToken public creditValueToken;
+    CreditCostToken public creditCostToken;
 
     address[] public stakers;
     mapping(address => uint) public stakingBalance;
     mapping(address => bool) public hasStaked;
     mapping(address => bool) public isStaking;
 
-    constructor(DappToken _dappToken, DaiToken _daiToken) public{
-        dappToken = _dappToken;
-        daiToken = _daiToken;
+    constructor(creditValueToken _creditValueToken, creditCostToken _creditCostToken) public{
+        creditValueToken = _creditValueToken;
+        creditCostToken = _creditCostToken;
         owner = msg.sender;
     }
 
@@ -24,7 +27,7 @@ contract TokenFarm{
 
         require(_amount>0, "amount cannot be 0");
 
-        daiToken.transferFrom(msg.sender, address(this), _amount);
+        creditValueToken.transferFrom(msg.sender, address(this), _amount);
 
         stakingBalance[msg.sender] = stakingBalance[msg.sender] + _amount;
 
@@ -39,7 +42,8 @@ contract TokenFarm{
     function unstakeTokens() public {
         uint balance = stakingBalance[msg.sender];
         require(balance > 0, "staking balance cannot be 0");
-        daiToken.transfer(msg.sender, balance);
+        creditValueToken.transfer(msg.sender, balance);
+        creditCostToken.transfer(msg.sender, balance);
         stakingBalance[msg.sender]=0;
         isStaking[msg.sender]=false;
     }
@@ -50,7 +54,8 @@ contract TokenFarm{
             address recipient = stakers[i];
             uint balance = stakingBalance[recipient];
             if(balance>0) {
-                dappToken.transfer(recipient, balance);
+                creditCostToken.transfer(recipient, balance);
+                creditValueToken.transfer(recipient, balance);
             }
         }
     }
