@@ -10,6 +10,7 @@ import {
 import {SafeERC20} from "./Libraries.sol";
 import {DelegationDataTypes} from "./DelegationDataTypes.sol";
 import {DelegationVault} from "./DelegationVault.sol";
+import {DelegationDAO } from "./DelegationDAO.sol";
 
 
 contract AaveCreditDelegationV2 is DelegationVault {
