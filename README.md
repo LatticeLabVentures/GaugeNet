@@ -7,7 +7,7 @@ First of its kind Reference Implementation of the AAVE Credit Delegation V2 Work
 
 ## Approach
 
-This project is an attempt to enhance the AAVE Protocol V2 Credit Delegation Workflow and Flash Loans Functionalities. AAVE Credit Delegation V2 Workflow ERC 1155 Tokens, Token Farms, and DAO & AAVE Flash Loan V2 Bonding Curve Integration Architecture on StarkWare StarkEx DEX. Credit Delegation Workflow is enhanced using the ERC 1155 Multi-Function Token Standard. Credit Delegation Workflow is further divided into components such as Loan to Value (LTV), Loan to Cost (LTC), Loan Credit Risk, Loan Credit Score, etc. Each of these components are tokenized as ERC 20 Tokens.  
+This project is an attempt to enhance the AAVE Protocol V2 Credit Delegation Workflow and Flash Loans Functionalities. AAVE Credit Delegation V2 Workflow ERC 1155 Tokens, Token Farms, and DAO & AAVE Flash Loan V2 Bonding Curve Integration Architecture on StarkWare StarkEx DEX. Credit Delegation Workflow is enhanced using the ERC 1155 Multi-Function Token Standard. Credit Delegation Workflow is further divided into components such as Loan to Value (LTV), Loan to Cost (LTC), Loan Credit Risk, Loan Credit Score, etc. Each of these components are tokenized as ERC 20 Tokens.  There is a Delegation Farm between Credit Value and Credit Cost tokens created. In addition to these changes to the AAVE CD, this project attempts to distribute the AAVE Batch Flash Loans as a Bonding Curve. This project aims to deploy the AAVE Credit Delegation Workflow as an ERC 1155 Token into the StarkWare StarkEx zkRollup based Decentralised Exchange to speed up the transfer and trade of credit delegation workflow multi tokens in its entirety. 
 
 ## Highlights 
 - AAVE Credit Delegation V2 Integration to a DAO
