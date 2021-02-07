@@ -9,7 +9,7 @@ import {
 } from "./Interfaces.sol";
 import {SafeERC20} from "./Libraries.sol";
 import {DelegationDataTypes} from "./DelegationDataTypes.sol";
-import {CreditDeliStorage} from "./CreditDeliStorage.sol";
+import {DelegationVault} from "./DelegationVault.sol";
 
 /**
  * This is a proof of concept starter contract, showing how uncollaterised loans
